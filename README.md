@@ -12,7 +12,7 @@
 ## インストール後例
 
 ```
-virtualenv --python=/usr/bin/python2.7 py27
+mkvirtualenv --python=/usr/bin/python2.7 py27
 
 deactivate py27
 workon py27
