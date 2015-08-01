@@ -1,0 +1,4 @@
+- hosts: test01
+  user: username
+  roles:
+    - { role: yuhiwa.venv}

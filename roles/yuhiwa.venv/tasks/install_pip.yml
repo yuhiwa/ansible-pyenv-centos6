@@ -1,0 +1,17 @@
+---
+- name: Check if pip is already installed
+  stat: path=/usr/bin/pip
+  register: pip
+
+- name: Download PIP
+  get_url: url=https://raw.github.com/pypa/pip/master/contrib/get-pip.py dest={{ tmp_dir }} 
+  when: not pip.stat.exists
+
+- name: Install PIP
+  sudo: yes
+  shell: cd {{ tmp_dir }} && python {{ item }}
+  with_items:
+    - get-pip.py
+  when: not pip.stat.exists
+
+

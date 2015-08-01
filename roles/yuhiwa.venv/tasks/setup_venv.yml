@@ -1,0 +1,16 @@
+- name: Check if .bashrc writing (command)
+  command: cat ~/.bashrc
+  register: bashrc
+  changed_when: False
+
+- name: virtualenv wraper setup
+  shell: |
+    (
+      echo ''
+      echo '## add virtualenv wrapper setting to .bashrc'
+      echo 'if [ -f /usr/bin/virtualenvwrapper.sh ]; then'
+      echo '  export WORKON_HOME=$HOME/.virtualenvs'
+      echo '  source /usr/bin/virtualenvwrapper.sh'
+      echo 'fi'
+    ) >> ~/.bashrc
+  when: bashrc.stdout.find('.virtualenvs') == -1

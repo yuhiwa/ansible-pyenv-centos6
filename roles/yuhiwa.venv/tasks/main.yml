@@ -1,0 +1,4 @@
+---
+- include: install_pip.yml
+- include: install_venv.yml
+- include: setup_venv.yml

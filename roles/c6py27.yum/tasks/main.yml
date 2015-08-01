@@ -1,0 +1,26 @@
+- name: install dependencies 
+  sudo: yes
+  yum: name={{ item }} state=latest
+  with_items:
+    - python-devel
+    - zlib-devel
+    - bzip2-devel
+    - openssl-devel
+    - ncurses-devel
+    - readline-devel
+    - pcre-devel
+    - curl-devel
+    - sqlite-devel
+
+- name: install epel repo 
+  sudo: yes
+  yum: name=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
+
+- name: install ius repo
+  sudo: yes
+  yum: name=http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-11.ius.centos6.noarch.rpm state=present
+
+- name: install python2.7
+  sudo: yes
+  yum: name=python27,python27-devel,python27-setuptools enablerepo=epel,ius state=latest
+

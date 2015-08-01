@@ -1,0 +1,6 @@
+---
+
+- hosts: test01
+  user: test
+  roles:
+    - yuhiwa.venv

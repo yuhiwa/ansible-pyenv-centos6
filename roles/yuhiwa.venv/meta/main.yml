@@ -1,0 +1,18 @@
+---
+
+galaxy_info:
+  author: Yuki Iwamoto
+  description: Set up virtual env python2.7.x on CentOS 6.6
+  company: 
+  license: BSD
+  min_ansible_version: 1.9
+  platforms:
+  - name: EL
+    versions:
+    - 6
+  categories:
+  - development
+  - web
+
+dependencies:
+  - { role: c6py27.yum }

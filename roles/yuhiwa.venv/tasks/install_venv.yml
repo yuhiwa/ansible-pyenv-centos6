@@ -1,0 +1,9 @@
+---
+- name: install virtualenv
+  sudo: yes
+  pip: name=virtualenv state=latest
+
+- name: install virtualenv wrapper
+  sudo: yes
+  pip: name=virtualenvwrapper state=latest
+
